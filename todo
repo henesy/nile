@@ -1,0 +1,15 @@
+Eventually, it'll make sense to replace all the references to
+"rio" with "nile". At that point, I'll have to stop referencing the
+rio source for otherwise-unchanged files, and the diffs will
+get a lot more tedius to read. Putting it off for now.
+
+For future consideration:
+•	Cinap has a patch for rio.c to set a background inage,
+	allow window cycling via kbd (& mouse?), change to pie
+	menus. See /n/sources/contrib/cinap_lenrek/rio.c
+		(Don't yet understand ZP changes)
+
+•	I'd like wctl to be able to toggle the scroll state, not just
+	set it on or off. Alternately (additionally?), it'd be useful
+	to be able to query the current state. Then I could add
+	Scroll to my modified winwatch's menu.
