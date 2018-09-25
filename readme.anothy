@@ -1,0 +1,57 @@
+This is a collection of changes to rio. Most
+of the patches are other people's work, simply collected
+here in one place.
+
+Unmodified files include the original rio files directly.
+
+I've changed "rio" to "nile" on prints and interfaces to
+avoid confusion, but have left most of the internal stuff
+as-is, to simplify diffs. In particular, the files in /srv still
+reference "rio".
+
+Nile includes Andrey Mirtchovski's patch to enable
+transparent window creation. That is, when creating or
+resizing windows, only the border is displayed. This is
+nicer when doing graphics over a poor network, and
+makes a difference for cpu load on tiny things like the
+Raspberry pi.
+
+"Exit" on button 3, previously only visible if the name of
+the executable ended in .out, is now always visible.
+
+I've added a slight variant of yiyus's -I patch, to add a
+non-interactive mode. My variant isn't quite as good as
+yiyus's original right now. I used this for a while, but don't
+any more; in cases where it'd be useful, something more drastic is
+really called for. I'll likely remove this.
+
+Playing around with colors. The current set is darker and
+works well, except for selected text being too low-contrast.
+
+I've reversed the sense of -s; scrolling is on by default.
+
+Removed cut, paste, and snarf from the buton 2 menu,
+as they're redundant with the mouse chords. Clears up
+the menu for other things, like look (in progress).
+
+Also, there's this suggestion from russ:
+	"if we get rid of the menus, then in a text window we
+	can use... ...button 2 for send, button 3 for plumb."
+	"if there's no b3 menu then a new window can be
+	created by just dragging out a rectangle with b3
+	when you start on grey background. that leaves
+	Delete and Hide. the hidden window menu can go on
+	b1."
+(see http://9fans.net/archive/2005/03/31)
+I've moved the hidden menu from b3 to b1, removed
+New, Resize, and Move from the b3 menu, and caused
+b3 on the background to sweep a new window. That last
+bit, in particular, feels pretty nice.
+You can get the last bit of the changes with -m (menuless),
+which will make b2 always mean "send to the current
+active text window" and b3 "plumb" when in a text window
+(and still create a new window on the background). I
+should create some shortcut commands for scroll, Delete,
+and Hide to write to wctl. That may get tedious with the
+last two; we'll see. I'm not planning on doing the menu bar
+approach russ described.

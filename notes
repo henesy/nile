@@ -1,0 +1,3 @@
+In wind.c:/^wmk, there's a "wborder(w, Selborder);" that yiyus's patch
+didn't change to selborder. Why? Similarly in wind.c:/^wresize and others.
+
